@@ -5,10 +5,13 @@ class AppColor {
   static const grayWarm = Color(0xff1C1917);
   static const appLogo = Color(0xff001637);
   static const grayText = Color(0xff667085);
+  static const gray = Color(0xff98A2B3);
   static const dotColor = Color(0xffFF6C00);
   static const whiteColor = Color(0xffFFFFFF);
   static const searchColor = Color(0xffF2F4F7);
   static const darkMode = Color(0xff000F24);
+  static const modeColor = Color(0xffFCFCFD);
+  static const shadowColor = Color(0xffA9B8D4);
 }
 
 class AppThemes {
