@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.my_country">
+        <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="my_country"
+        android:label="myCountry"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
