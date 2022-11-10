@@ -1,4 +1,3 @@
-import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,7 +63,7 @@ class AppHeader extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 prefixIcon: Icon(
-                  FlatIcons.search,
+                  Icons.search,
                   size: ScreenUtil().radius(20),
                   color: AppColor.grayText,
                 ),
