@@ -48,6 +48,28 @@ class _SearchCountryState extends State<SearchCountry> {
               const SearchBar(),
               SizedBox(height: ScreenUtil().setHeight(16)),
               const SelectZone(),
+              SizedBox(height: ScreenUtil().setHeight(16)),
+              Expanded(
+                  child: MediaQuery.removePadding(
+                      context: context,
+                      child: ListView.builder(
+                        padding: REdgeInsets.symmetric(vertical: 26),
+                        itemCount: 10,
+                        itemBuilder: ((context, index) => Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                      text: 'Ready to do this!\n',
+                                      style: homelist,
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                            text: 'I\'m Charged',
+                                            style: sublist),
+                                      ]),
+                                )
+                              ],
+                            )),
+                      )))
             ],
           ),
         ),

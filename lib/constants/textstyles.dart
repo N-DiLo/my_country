@@ -30,3 +30,15 @@ TextStyle timezones = TextStyle(
     fontSize: ScreenUtil().setSp(16),
     color: Colors.black,
     fontWeight: FontWeight.w400);
+
+TextStyle homelist = TextStyle(
+    fontFamily: 'Axiforma',
+    fontSize: ScreenUtil().setSp(14),
+    color: AppColor.grayWarm,
+    fontWeight: FontWeight.w400);
+
+TextStyle sublist = TextStyle(
+    fontFamily: 'Axiforma',
+    fontSize: ScreenUtil().setSp(14),
+    color: AppColor.gray,
+    fontWeight: FontWeight.w400);
