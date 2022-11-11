@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_country/constants/app_const.dart';
 import 'package:my_country/constants/textstyles.dart';
+import 'package:my_country/models/explore.dart';
+import 'package:my_country/services/web_call.dart';
 
 import 'package:my_country/utils/responsive.dart';
 import 'package:my_country/utils/app_container.dart';
@@ -14,6 +16,25 @@ class SearchCountry extends StatefulWidget {
 }
 
 class _SearchCountryState extends State<SearchCountry> {
+  List<Explore>? explore;
+  var isLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getData(); //Fetches data from given api (explore)
+  }
+
+  getData() async {
+    explore = await WebCall().getPosts();
+    if (explore != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenLayout(
@@ -52,23 +73,29 @@ class _SearchCountryState extends State<SearchCountry> {
               Expanded(
                   child: MediaQuery.removePadding(
                       context: context,
-                      child: ListView.builder(
-                        padding: REdgeInsets.symmetric(vertical: 26),
-                        itemCount: 10,
-                        itemBuilder: ((context, index) => Row(
-                              children: [
-                                RichText(
-                                  text: TextSpan(
-                                      text: 'Ready to do this!\n',
-                                      style: homelist,
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                            text: 'I\'m Charged',
-                                            style: sublist),
-                                      ]),
-                                )
-                              ],
-                            )),
+                      child: Visibility(
+                        visible: isLoaded,
+                        replacement:
+                            const Center(child: CircularProgressIndicator()),
+                        child: ListView.builder(
+                          padding: REdgeInsets.symmetric(vertical: 26),
+                          itemCount: explore?.length,
+                          itemBuilder: ((context, index) => Container(
+                                child: Row(
+                                  children: [
+                                    RichText(
+                                        text: TextSpan(
+                                            text: '${explore![index].cca2!}\n',
+                                            style: homelist,
+                                            children: <TextSpan>[
+                                          TextSpan(
+                                              text: explore![index].subregion,
+                                              style: sublist)
+                                        ])),
+                                  ],
+                                ),
+                              )),
+                        ),
                       )))
             ],
           ),
