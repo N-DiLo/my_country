@@ -4,10 +4,8 @@ import 'package:my_country/constants/app_const.dart';
 import 'package:my_country/constants/textstyles.dart';
 import 'package:my_country/models/explore.dart';
 import 'package:my_country/services/web_call.dart';
-
 import 'package:my_country/utils/responsive.dart';
 import 'package:my_country/utils/app_container.dart';
-import 'package:my_country/views/country_details.dart';
 
 class SearchCountry extends StatefulWidget {
   const SearchCountry({super.key});
