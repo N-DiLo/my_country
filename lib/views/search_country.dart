@@ -7,6 +7,7 @@ import 'package:my_country/services/web_call.dart';
 
 import 'package:my_country/utils/responsive.dart';
 import 'package:my_country/utils/app_container.dart';
+import 'package:my_country/views/country_details.dart';
 
 class SearchCountry extends StatefulWidget {
   const SearchCountry({super.key});
@@ -80,20 +81,20 @@ class _SearchCountryState extends State<SearchCountry> {
                         child: ListView.builder(
                           padding: REdgeInsets.symmetric(vertical: 26),
                           itemCount: explore?.length,
-                          itemBuilder: ((context, index) => Container(
-                                child: Row(
-                                  children: [
-                                    RichText(
-                                        text: TextSpan(
-                                            text: '${explore![index].cca2!}\n',
-                                            style: homelist,
-                                            children: <TextSpan>[
-                                          TextSpan(
-                                              text: explore![index].subregion,
-                                              style: sublist)
-                                        ])),
-                                  ],
+                          itemBuilder: ((context, index) => ListTile(
+                                leading: Text(
+                                  explore![index].ccn3!,
+                                  style: homelist,
                                 ),
+                                title: RichText(
+                                    text: TextSpan(
+                                        text: '${explore![index].cca2!}\n',
+                                        style: homelist,
+                                        children: <TextSpan>[
+                                      TextSpan(
+                                          text: explore![index].subregion,
+                                          style: sublist)
+                                    ])),
                               )),
                         ),
                       )))
