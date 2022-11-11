@@ -14,7 +14,7 @@ String exploreToJson(List<Explore> data) =>
 
 class Explore {
   Explore({
-    required this.name,
+    this.name,
     this.tld,
     this.cca2,
     this.ccn3,
@@ -51,7 +51,7 @@ class Explore {
     this.postalCode,
   });
 
-  Name name;
+  Name? name;
   List<String>? tld;
   String? cca2;
   String? ccn3;
@@ -146,7 +146,7 @@ class Explore {
       );
 
   Map<String, dynamic> toJson() => {
-        "name": name.toJson(),
+        "name": name!.toJson(),
         "tld": tld == null ? null : List<dynamic>.from(tld!.map((x) => x)),
         "cca2": cca2,
         "ccn3": ccn3,

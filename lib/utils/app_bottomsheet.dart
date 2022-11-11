@@ -62,61 +62,29 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
               topLeft: Radius.circular(32), topRight: Radius.circular(32))),
       child: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Filter', style: language),
-                Container(
-                  width: ScreenUtil().setWidth(20),
-                  height: ScreenUtil().setHeight(20),
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: AppColor.shadowColor,
-                      borderRadius: BorderRadius.circular(4)),
-                  child: Icon(
-                    Icons.close_rounded,
-                    color: AppColor.gray,
-                    size: ScreenUtil().radius(15),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: ScreenUtil().setHeight(24)),
-            ExpansionPanelList(
-              expansionCallback: (panelIndex, isExpanded) => setState(() {
-                timing[panelIndex].isOpened = !isExpanded;
-              }),
-              children: timing
-                  .map((item) => ExpansionPanel(
-                        isExpanded: item.isOpened,
-                        canTapOnHeader: true,
-                        headerBuilder: ((context, isExpanded) => ListTile(
-                              title: Text(
-                                item.continent,
-                                style: timezones,
-                              ),
-                            )),
-                        body: Column(
-                          children: [
-                            ListTile(title: Text(item.continent)),
-                          ],
-                        ),
-                      ))
-                  .toList(),
-            )
-          ],
-        ),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Filter', style: language),
+              Container(
+                width: ScreenUtil().setWidth(20),
+                height: ScreenUtil().setHeight(20),
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: AppColor.shadowColor,
+                    borderRadius: BorderRadius.circular(4)),
+                child: Icon(
+                  Icons.close_rounded,
+                  color: AppColor.gray,
+                  size: ScreenUtil().radius(15),
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: ScreenUtil().setHeight(24)),
+        ]),
       ),
-    );
-  }
-
-  Widget checkTiming(TimeZones tile) {
-    return ExpansionTile(
-      title: Text(tile.continent),
-      children: tile.tiles.map((tile) => checkTiming(tile)).toList(),
     );
   }
 }

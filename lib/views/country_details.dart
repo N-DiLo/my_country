@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_country/constants/app_header.dart';
+import 'package:my_country/constants/app_const.dart';
+import 'package:my_country/constants/textstyles.dart';
 import 'package:my_country/utils/responsive.dart';
 
 class CountryDetials extends StatefulWidget {
@@ -12,10 +13,18 @@ class CountryDetials extends StatefulWidget {
 class _CountryDetialsState extends State<CountryDetials> {
   @override
   Widget build(BuildContext context) {
-    return const ScreenLayout(
+    return ScreenLayout(
       mobile: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Country', style: language),
+          elevation: 0,
+          backgroundColor: AppColor.whiteColor,
+        ),
         backgroundColor: Colors.white,
-        body: AppHeader(),
+        body: SingleChildScrollView(
+          child: Column(),
+        ),
       ),
     );
   }
