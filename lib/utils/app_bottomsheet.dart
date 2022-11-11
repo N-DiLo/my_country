@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_country/constants/app_const.dart';
 import 'package:my_country/constants/textstyles.dart';
+import 'package:my_country/models/app_models.dart';
 
 class LangBottomSheet extends StatelessWidget {
   const LangBottomSheet({super.key});
@@ -16,6 +17,7 @@ class LangBottomSheet extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,6 +63,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
       child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,11 +83,40 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   ),
                 )
               ],
+            ),
+            SizedBox(height: ScreenUtil().setHeight(24)),
+            ExpansionPanelList(
+              expansionCallback: (panelIndex, isExpanded) => setState(() {
+                timing[panelIndex].isOpened = !isExpanded;
+              }),
+              children: timing
+                  .map((item) => ExpansionPanel(
+                        isExpanded: item.isOpened,
+                        canTapOnHeader: true,
+                        headerBuilder: ((context, isExpanded) => ListTile(
+                              title: Text(
+                                item.continent,
+                                style: timezones,
+                              ),
+                            )),
+                        body: Column(
+                          children: [
+                            ListTile(title: Text(item.continent)),
+                          ],
+                        ),
+                      ))
+                  .toList(),
             )
           ],
         ),
       ),
     );
-    ;
+  }
+
+  Widget checkTiming(TimeZones tile) {
+    return ExpansionTile(
+      title: Text(tile.continent),
+      children: tile.tiles.map((tile) => checkTiming(tile)).toList(),
+    );
   }
 }

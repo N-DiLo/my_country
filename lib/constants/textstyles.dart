@@ -24,3 +24,9 @@ TextStyle language = TextStyle(
     fontSize: ScreenUtil().setSp(20),
     color: Colors.black,
     fontWeight: FontWeight.w700);
+
+TextStyle timezones = TextStyle(
+    fontFamily: 'Axiforma',
+    fontSize: ScreenUtil().setSp(16),
+    color: Colors.black,
+    fontWeight: FontWeight.w400);
