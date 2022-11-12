@@ -42,3 +42,15 @@ TextStyle sublist = TextStyle(
     fontSize: ScreenUtil().setSp(14),
     color: AppColor.gray,
     fontWeight: FontWeight.w400);
+
+TextStyle detailsHeader = TextStyle(
+    fontFamily: 'Axiforma',
+    fontSize: ScreenUtil().setSp(16),
+    color: AppColor.grayWarm,
+    fontWeight: FontWeight.w500);
+
+TextStyle detailsBody = TextStyle(
+    fontFamily: 'Axiforma',
+    fontSize: ScreenUtil().setSp(16),
+    color: AppColor.grayWarm,
+    fontWeight: FontWeight.w300);

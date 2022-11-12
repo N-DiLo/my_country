@@ -65,6 +65,7 @@ class _SearchCountryState extends State<SearchCountry> {
         body: Padding(
           padding: REdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SearchBar(),
               SizedBox(height: ScreenUtil().setHeight(16)),
@@ -85,10 +86,15 @@ class _SearchCountryState extends State<SearchCountry> {
                                 MaterialPageRoute(
                                     builder: (_) => CountryDetials(
                                         details: explore![index]))),
-                            leading: Image.network(
+                            leading: Container(
                                 width: ScreenUtil().setWidth(40),
                                 height: ScreenUtil().setHeight(40),
-                                explore![index].flags!.png!),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: NetworkImage(
+                                            explore![index].flags!.png!)))),
                             title: Text(explore![index].name!.common!,
                                 style: homelist),
                             subtitle: Text(explore![index].capital!.first,

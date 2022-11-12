@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppColor {
@@ -68,3 +69,6 @@ class AppThemePref {
     return sharedPreferences.getBool(appThemeKEY);
   }
 }
+
+Widget defaultVerticalSpacing = SizedBox(height: ScreenUtil().setHeight(26));
+Widget defaultHorizontalSpacing = SizedBox(width: ScreenUtil().setWidth(24));

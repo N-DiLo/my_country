@@ -69,28 +69,25 @@ class SelectZone extends StatelessWidget {
               elevation: 0.2,
               context: context,
               builder: (_) => const LangBottomSheet()),
-          child: Container(
-            padding: REdgeInsets.all(8),
-            width: ScreenUtil().setWidth(73),
-            height: ScreenUtil().setHeight(40),
-            decoration: BoxDecoration(
-                border: Border.all(width: 0.2, color: AppColor.shadowColor),
-                borderRadius: BorderRadius.circular(4)),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.language_outlined,
-                  size: ScreenUtil().radius(30),
-                  color: AppColor.grayWarm,
-                ),
-                SizedBox(
-                  width: ScreenUtil().setWidth(8),
-                ),
-                Text(
-                  'EN',
-                  style: appLang,
-                )
-              ],
+          child: Expanded(
+            child: Container(
+              padding: REdgeInsets.all(8),
+              width: ScreenUtil().setWidth(73),
+              height: ScreenUtil().setHeight(40),
+              decoration: BoxDecoration(
+                  border: Border.all(width: 0.2, color: AppColor.shadowColor),
+                  borderRadius: BorderRadius.circular(4)),
+              child: Row(
+                children: [
+                  Icon(Icons.language_outlined,
+                      size: ScreenUtil().radius(30), color: AppColor.grayWarm),
+                  SizedBox(width: ScreenUtil().setWidth(8)),
+                  Text(
+                    'EN',
+                    style: appLang,
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -99,23 +96,25 @@ class SelectZone extends StatelessWidget {
               elevation: 0.2,
               context: context,
               builder: (_) => const FilterBottomSheet()),
-          child: Container(
-            padding: REdgeInsets.all(8),
-            width: ScreenUtil().setWidth(86),
-            height: ScreenUtil().setHeight(40),
-            decoration: BoxDecoration(
-                border: Border.all(width: 0.2, color: AppColor.shadowColor),
-                borderRadius: BorderRadius.circular(4)),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.filter_alt_outlined,
-                  size: ScreenUtil().radius(30),
-                  color: AppColor.grayWarm,
-                ),
-                SizedBox(width: ScreenUtil().setWidth(8)),
-                Text('Filter', style: appLang)
-              ],
+          child: Expanded(
+            child: Container(
+              padding: REdgeInsets.all(8),
+              width: ScreenUtil().setWidth(86),
+              height: ScreenUtil().setHeight(40),
+              decoration: BoxDecoration(
+                  border: Border.all(width: 0.2, color: AppColor.shadowColor),
+                  borderRadius: BorderRadius.circular(4)),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.filter_alt_outlined,
+                    size: ScreenUtil().radius(30),
+                    color: AppColor.grayWarm,
+                  ),
+                  SizedBox(width: ScreenUtil().setWidth(8)),
+                  Text('Filter', style: appLang)
+                ],
+              ),
             ),
           ),
         )

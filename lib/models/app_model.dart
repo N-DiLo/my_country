@@ -64,7 +64,7 @@ class Explore {
   Idd? idd;
   List<String>? capital;
   List<String>? altSpellings;
-  Region? region;
+  String? region;
   String? subregion;
   Map<String, String>? languages;
   Map<String, Translation>? translations;
@@ -107,7 +107,7 @@ class Explore {
             ? null
             : List<String>.from(json["capital"].map((x) => x)),
         altSpellings: List<String>.from(json["altSpellings"].map((x) => x)),
-        region: regionValues.map![json["region"]],
+        region: json["region"],
         subregion: json["subregion"],
         languages: json["languages"] == null
             ? null
@@ -160,7 +160,7 @@ class Explore {
         "capital":
             capital == null ? null : List<dynamic>.from(capital!.map((x) => x)),
         "altSpellings": List<dynamic>.from(altSpellings!.map((x) => x)),
-        "region": regionValues.reverse[region],
+        "region": region,
         "subregion": subregion,
         "languages": languages == null
             ? null
