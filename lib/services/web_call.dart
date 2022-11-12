@@ -1,4 +1,4 @@
-import 'package:my_country/models/explore.dart';
+import 'package:my_country/models/app_model.dart';
 import 'package:http/http.dart' as http;
 
 class WebCall {

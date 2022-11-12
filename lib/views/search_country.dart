@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_country/constants/app_const.dart';
 import 'package:my_country/constants/textstyles.dart';
-import 'package:my_country/models/explore.dart';
+import 'package:my_country/models/app_model.dart';
 import 'package:my_country/services/web_call.dart';
 import 'package:my_country/utils/responsive.dart';
 import 'package:my_country/utils/app_container.dart';
@@ -28,7 +27,7 @@ class _SearchCountryState extends State<SearchCountry> {
   }
 
   getData() async {
-    explore = (await WebCall().getPosts()) as List<Explore>?;
+    explore = (await WebCall().getPosts());
     if (explore != null) {
       setState(() {
         isLoaded = true;
@@ -84,12 +83,16 @@ class _SearchCountryState extends State<SearchCountry> {
                             onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => const CountryDetials())),
+                                    builder: (_) => CountryDetials(
+                                        details: explore![index]))),
                             leading: Image.network(
                                 width: ScreenUtil().setWidth(40),
                                 height: ScreenUtil().setHeight(40),
                                 explore![index].flags!.png!),
-                            title: Text(explore![index].cca3!, style: homelist),
+                            title: Text(explore![index].name!.common!,
+                                style: homelist),
+                            subtitle: Text(explore![index].capital!.first,
+                                style: sublist),
                           ))),
                 ),
               ))
