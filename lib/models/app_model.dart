@@ -219,13 +219,13 @@ class Car {
   });
 
   List<String>? signs;
-  Side? side;
+  String? side;
 
   factory Car.fromJson(Map<String, dynamic> json) => Car(
         signs: json["signs"] == null
             ? null
             : List<String>.from(json["signs"].map((x) => x)),
-        side: sideValues.map![json["side"]],
+        side: json["side"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -237,7 +237,7 @@ class Car {
 
 enum Side { RIGHT, LEFT }
 
-final sideValues = EnumValues({"left": Side.LEFT, "right": Side.RIGHT});
+final sideValues = EnumValues({"Left": Side.LEFT, "Right": Side.RIGHT});
 
 class CoatOfArms {
   CoatOfArms({

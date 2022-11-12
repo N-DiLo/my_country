@@ -25,6 +25,7 @@ class CountryDetials extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: ScreenUtil().setHeight(16)),
                 Container(
                   width: ScreenUtil().setWidth(380),
                   height: ScreenUtil().setHeight(250),
@@ -41,17 +42,84 @@ class CountryDetials extends StatelessWidget {
                       style: detailsHeader,
                       children: [
                         TextSpan(
-                            text: '${details.name!.common}\n',
+                            text: '${details.population}\n',
                             style: detailsBody),
                         TextSpan(text: 'Region: ', style: detailsHeader),
                         TextSpan(
                             text: '${details.region}\n', style: detailsBody),
                         TextSpan(text: 'Capital: ', style: detailsHeader),
                         TextSpan(
-                            text: '${details.capital}\n', style: detailsBody),
+                            text: '${details.capital!.first}\n',
+                            style: detailsBody),
                         TextSpan(text: 'Motto: ', style: detailsHeader),
                         TextSpan(
+                            text: '${details.timezones!.first}\n',
+                            style: detailsBody),
+                      ]),
+                ),
+                defaultHorizontalSpacing,
+                RichText(
+                  text: TextSpan(
+                      text: 'Official Language: ',
+                      style: detailsHeader,
+                      children: [
+                        TextSpan(
+                            text: '${details.demonyms!.eng!.f}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Ethnic group: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.population}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Religion: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.capitalInfo!.latlng!}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Government: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.area!.sign}\n',
+                            style: detailsBody),
+                      ]),
+                ),
+                defaultHorizontalSpacing,
+                RichText(
+                  text: TextSpan(
+                      text: 'Independence: ',
+                      style: detailsHeader,
+                      children: [
+                        TextSpan(
+                            text: '${details.independent}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Currency: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.currencies!.aed?.symbol}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Area: ', style: detailsHeader),
+                        TextSpan(text: '${details.area}\n', style: detailsBody),
+                        TextSpan(text: 'GDP: ', style: detailsHeader),
+                        TextSpan(
                             text: '${details.subregion}\n', style: detailsBody),
+                      ]),
+                ),
+                defaultHorizontalSpacing,
+                RichText(
+                  text: TextSpan(
+                      text: 'Time zones: ',
+                      style: detailsHeader,
+                      children: [
+                        TextSpan(
+                            text: '${details.timezones!.first}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Date format: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.maps!.googleMaps}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Dailing code: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.postalCode}\n',
+                            style: detailsBody),
+                        TextSpan(text: 'Driving side: ', style: detailsHeader),
+                        TextSpan(
+                            text: '${details.car!.side}\n', style: detailsBody),
                       ]),
                 ),
               ],
