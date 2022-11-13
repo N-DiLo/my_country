@@ -66,7 +66,7 @@ class SelectZone extends StatelessWidget {
       children: [
         InkWell(
           onTap: () => showModalBottomSheet(
-              elevation: 0.2,
+              backgroundColor: Colors.transparent,
               context: context,
               builder: (_) => const LangBottomSheet()),
           child: Expanded(
@@ -80,7 +80,8 @@ class SelectZone extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.language_outlined,
-                      size: ScreenUtil().radius(30), color: AppColor.grayWarm),
+                      size: ScreenUtil().radius(30),
+                      color: Theme.of(context).primaryColorDark),
                   SizedBox(width: ScreenUtil().setWidth(8)),
                   Text(
                     'EN',
@@ -93,7 +94,7 @@ class SelectZone extends StatelessWidget {
         ),
         InkWell(
           onTap: () => showModalBottomSheet(
-              elevation: 0.2,
+              backgroundColor: Colors.transparent,
               context: context,
               builder: (_) => const FilterBottomSheet()),
           child: Expanded(
@@ -109,7 +110,7 @@ class SelectZone extends StatelessWidget {
                   Icon(
                     Icons.filter_alt_outlined,
                     size: ScreenUtil().radius(30),
-                    color: AppColor.grayWarm,
+                    color: Theme.of(context).primaryColorDark,
                   ),
                   SizedBox(width: ScreenUtil().setWidth(8)),
                   Text('Filter', style: appLang)

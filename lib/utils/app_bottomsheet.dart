@@ -12,9 +12,9 @@ class LangBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-          color: AppColor.whiteColor,
-          borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(32), topRight: Radius.circular(32))),
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -55,9 +55,9 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-          color: AppColor.whiteColor,
-          borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(32), topRight: Radius.circular(32))),
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -93,13 +93,13 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AppButton(
-                  primary: AppColor.grayWarm,
+                  primary: AppColor.whiteColor,
                   text: 'Reset',
                   onPressed: () {},
                   minimumSize: Size(
                       ScreenUtil().setWidth(104), ScreenUtil().setHeight(48)),
-                  side: const BorderSide(width: 1, color: AppColor.grayWarm),
-                  backgroundColor: AppColor.whiteColor),
+                  side: const BorderSide(width: 1, color: AppColor.whiteColor),
+                  backgroundColor: Colors.transparent),
               AppButton(
                   primary: AppColor.whiteColor,
                   text: 'Show results',

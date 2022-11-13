@@ -15,49 +15,36 @@ class AppColor {
   static const shadowColor = Color(0xffA9B8D4);
 }
 
-class AppThemes {
-  static final darkMode = ThemeData(
-      scaffoldBackgroundColor: AppColor.darkMode,
-      colorScheme: const ColorScheme.dark());
-
-  static final lightMode = ThemeData(
-      scaffoldBackgroundColor: AppColor.whiteColor,
-      colorScheme: const ColorScheme.light());
-}
-
 //ChangeNotifier class for ThemeData
 class ThemeChanger extends ChangeNotifier {
-  bool get isDarkTheme => themeMode == ThemeMode.dark;
-  AppThemePref _pref = AppThemePref();
+  late bool _isDarkTheme;
+  late AppThemePref _pref;
+  bool get isDarkTheme => _isDarkTheme;
 
   ThemeMode themeMode = ThemeMode.dark;
 
   ThemeChanger() {
-    isDarkTheme = false;
+    _isDarkTheme = false;
     _pref = AppThemePref();
     getPreferences();
   }
 
-  void changeTheme(bool turnOn) {
-    themeMode = turnOn ? ThemeMode.dark : ThemeMode.light;
+  //Changing App Theme mode
+  set isDarkTheme(bool value) {
+    _isDarkTheme = value;
+    _pref.setTheme(value);
     notifyListeners();
   }
 
   getPreferences() async {
-    themeMode = await _pref.getTheme();
-    notifyListeners();
-  }
-
-  set isDarkTheme(bool value) {
-    isDarkTheme = value;
-    _pref.setTheme(value);
+    _isDarkTheme = await _pref.getTheme();
     notifyListeners();
   }
 }
 
 //Theme Preference class to store user previous selected Theme
 class AppThemePref {
-  static const appThemeKEY = 'pref_key';
+  static const appThemeKEY = 'theme_key';
 
   setTheme(bool value) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -66,7 +53,7 @@ class AppThemePref {
 
   getTheme() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getBool(appThemeKEY);
+    return sharedPreferences.getBool(appThemeKEY) ?? false;
   }
 }
 

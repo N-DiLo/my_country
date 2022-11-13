@@ -16,9 +16,7 @@ class CountryDetials extends StatelessWidget {
         appBar: AppBar(
             centerTitle: true,
             title: Text(details.name!.common!, style: language),
-            elevation: 0,
-            backgroundColor: AppColor.whiteColor),
-        backgroundColor: Colors.white,
+            elevation: 0),
         body: SingleChildScrollView(
           child: Padding(
             padding: REdgeInsets.symmetric(horizontal: 24),

@@ -4,9 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_country/constants/app_const.dart';
 
 TextStyle myAppBarText = GoogleFonts.elsie(
-    fontSize: ScreenUtil().setSp(25),
-    color: AppColor.appLogo,
-    fontWeight: FontWeight.w700);
+    fontSize: ScreenUtil().setSp(25), fontWeight: FontWeight.w700);
 
 TextStyle logoDot = GoogleFonts.elsie(
     fontSize: ScreenUtil().setSp(25),
@@ -16,25 +14,21 @@ TextStyle logoDot = GoogleFonts.elsie(
 TextStyle appLang = TextStyle(
     fontFamily: 'Axiforma',
     fontSize: ScreenUtil().setSp(12),
-    color: Colors.black,
     fontWeight: FontWeight.w500);
 
 TextStyle language = TextStyle(
     fontFamily: 'Axiforma',
     fontSize: ScreenUtil().setSp(20),
-    color: Colors.black,
     fontWeight: FontWeight.w700);
 
 TextStyle timezones = TextStyle(
     fontFamily: 'Axiforma',
     fontSize: ScreenUtil().setSp(16),
-    color: Colors.black,
     fontWeight: FontWeight.w400);
 
 TextStyle homelist = TextStyle(
     fontFamily: 'Axiforma',
     fontSize: ScreenUtil().setSp(14),
-    color: AppColor.grayWarm,
     fontWeight: FontWeight.w400);
 
 TextStyle sublist = TextStyle(
@@ -46,11 +40,9 @@ TextStyle sublist = TextStyle(
 TextStyle detailsHeader = TextStyle(
     fontFamily: 'Axiforma',
     fontSize: ScreenUtil().setSp(16),
-    color: AppColor.grayWarm,
     fontWeight: FontWeight.w500);
 
 TextStyle detailsBody = TextStyle(
     fontFamily: 'Axiforma',
     fontSize: ScreenUtil().setSp(16),
-    color: AppColor.grayWarm,
     fontWeight: FontWeight.w300);
