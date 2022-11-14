@@ -17,7 +17,7 @@ For help getting started with Flutter development, view the
 # [Flutter] myCountry Mobile Application
 
 ## [The App] Appetize Link
-- [Appetize-Link](https://appetize.io/app/47l4zw7cpmhgfdtysyxaxc57cy?device=pixel4&osVersion=11.0&scale=75): The app can be tested using appetize, an online emulator site that enables developers test created apps without having the need of installing the app in a physical device.
+- [Appetize-Link](https://appetize.io/app/i75fkxxdsutgjlfv4z6cuf4kye?device=pixel4&osVersion=11.0&scale=75): The app can be tested using appetize, an online emulator site that enables developers test created apps without having the need of installing the app in a physical device.
 
 ## UI Design
 - [UI-Design](https://www.figma.com/file/v9AXj4VZNnx26fTthrPbhX/Explore?node-id=31%3A436): Link to the UI Design used.

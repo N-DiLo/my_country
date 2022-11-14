@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_country/constants/app_const.dart';
@@ -24,20 +25,35 @@ class CountryDetials extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: ScreenUtil().setHeight(16)),
-                Container(
-                  width: ScreenUtil().setWidth(380),
-                  height: ScreenUtil().setHeight(250),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: NetworkImage(details.flags!.png!))),
+                CarouselSlider(
+                  options: CarouselOptions(autoPlay: true, viewportFraction: 1),
+                  items: [
+                    Container(
+                      width: ScreenUtil().setWidth(380),
+                      height: ScreenUtil().setHeight(250),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: NetworkImage(details.flags!.png!))),
+                    ),
+                    Container(
+                      width: ScreenUtil().setWidth(380),
+                      height: ScreenUtil().setHeight(250),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                              fit: BoxFit.contain,
+                              image: NetworkImage(details.coatOfArms!.png!))),
+                    ),
+                  ],
                 ),
                 defaultVerticalSpacing,
                 RichText(
                   text: TextSpan(
                       text: 'Population: ',
-                      style: detailsHeader,
+                      style: detailsHeader.copyWith(
+                          color: Theme.of(context).primaryColorDark),
                       children: [
                         TextSpan(
                             text: '${details.population}\n',
@@ -59,19 +75,17 @@ class CountryDetials extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                       text: 'Official Language: ',
-                      style: detailsHeader,
+                      style: detailsHeader.copyWith(
+                          color: Theme.of(context).primaryColorDark),
                       children: [
                         TextSpan(
                             text: '${details.demonyms!.eng!.f}\n',
                             style: detailsBody),
                         TextSpan(text: 'Ethnic group: ', style: detailsHeader),
                         TextSpan(
-                            text: '${details.population}\n',
-                            style: detailsBody),
+                            text: '${details.idd!.root}\n', style: detailsBody),
                         TextSpan(text: 'Religion: ', style: detailsHeader),
-                        TextSpan(
-                            text: '${details.capitalInfo!.latlng!}\n',
-                            style: detailsBody),
+                        TextSpan(text: '\n', style: detailsBody),
                         TextSpan(text: 'Government: ', style: detailsHeader),
                         TextSpan(
                             text: '${details.area!.sign}\n',
@@ -82,39 +96,35 @@ class CountryDetials extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                       text: 'Independence: ',
-                      style: detailsHeader,
+                      style: detailsHeader.copyWith(
+                          color: Theme.of(context).primaryColorDark),
                       children: [
                         TextSpan(
                             text: '${details.independent}\n',
                             style: detailsBody),
                         TextSpan(text: 'Currency: ', style: detailsHeader),
-                        TextSpan(
-                            text: '${details.currencies!.aed?.symbol}\n',
-                            style: detailsBody),
+                        TextSpan(text: '\n', style: detailsBody),
                         TextSpan(text: 'Area: ', style: detailsHeader),
                         TextSpan(text: '${details.area}\n', style: detailsBody),
                         TextSpan(text: 'GDP: ', style: detailsHeader),
-                        TextSpan(
-                            text: '${details.subregion}\n', style: detailsBody),
+                        TextSpan(text: '\n', style: detailsBody),
                       ]),
                 ),
                 defaultHorizontalSpacing,
                 RichText(
                   text: TextSpan(
                       text: 'Time zones: ',
-                      style: detailsHeader,
+                      style: detailsHeader.copyWith(
+                          color: Theme.of(context).primaryColorDark),
                       children: [
                         TextSpan(
                             text: '${details.timezones!.first}\n',
                             style: detailsBody),
                         TextSpan(text: 'Date format: ', style: detailsHeader),
-                        TextSpan(
-                            text: '${details.maps!.googleMaps}\n',
-                            style: detailsBody),
+                        TextSpan(text: '\n', style: detailsBody),
                         TextSpan(text: 'Dailing code: ', style: detailsHeader),
                         TextSpan(
-                            text: '${details.postalCode}\n',
-                            style: detailsBody),
+                            text: '${details.idd!.root}\n', style: detailsBody),
                         TextSpan(text: 'Driving side: ', style: detailsHeader),
                         TextSpan(
                             text: '${details.car!.side}\n', style: detailsBody),

@@ -54,8 +54,10 @@ class _SearchCountryState extends State<SearchCountry> {
                   icon: Icon(
                     themeChanger.isDarkTheme
                         ? Icons.light_mode_outlined
-                        : Icons.dark_mode_rounded,
-                    color: AppColor.grayWarm,
+                        : Icons.dark_mode_outlined,
+                    color: themeChanger.isDarkTheme
+                        ? AppColor.grayWarm
+                        : AppColor.whiteColor,
                   ),
                 ),
               ),
@@ -64,7 +66,8 @@ class _SearchCountryState extends State<SearchCountry> {
             title: RichText(
               text: TextSpan(
                   text: 'Explore',
-                  style: myAppBarText,
+                  style: myAppBarText.copyWith(
+                      color: Theme.of(context).primaryColorDark),
                   children: [TextSpan(text: '.', style: logoDot)]),
             ),
           ),

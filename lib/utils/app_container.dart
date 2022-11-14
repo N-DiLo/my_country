@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_country/constants/app_const.dart';
 import 'package:my_country/constants/textstyles.dart';
+import 'package:my_country/models/app_model.dart';
 import 'package:my_country/utils/app_bottomsheet.dart';
 import 'package:my_country/utils/responsive.dart';
 
@@ -57,7 +58,8 @@ class _SearchBarState extends State<SearchBar> {
 //Containers used for changing languages and filtering time zones
 
 class SelectZone extends StatelessWidget {
-  const SelectZone({super.key});
+  final Explore? continents;
+  const SelectZone({super.key, this.continents});
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,7 @@ class SelectZone extends StatelessWidget {
       children: [
         InkWell(
           onTap: () => showModalBottomSheet(
+              useRootNavigator: true,
               backgroundColor: Colors.transparent,
               context: context,
               builder: (_) => const LangBottomSheet()),

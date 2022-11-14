@@ -23,20 +23,37 @@ class LangBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Languages', style: language),
-              Container(
-                width: ScreenUtil().setWidth(20),
-                height: ScreenUtil().setHeight(20),
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: AppColor.shadowColor,
-                    borderRadius: BorderRadius.circular(4)),
-                child: Icon(
-                  Icons.close_rounded,
-                  color: AppColor.gray,
-                  size: ScreenUtil().radius(15),
+              Padding(
+                padding: REdgeInsets.only(right: 8),
+                child: Container(
+                  width: ScreenUtil().setWidth(20),
+                  height: ScreenUtil().setHeight(20),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: AppColor.shadowColor,
+                      borderRadius: BorderRadius.circular(4)),
+                  child: Icon(
+                    Icons.close_rounded,
+                    color: AppColor.gray,
+                    size: ScreenUtil().radius(15),
+                  ),
                 ),
               )
             ],
+          ),
+          defaultVerticalSpacing,
+          Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index) =>
+                      LabeledRadioButton(
+                          label: 'Language Test',
+                          value: 1,
+                          groupValue: 0,
+                          onChanged: ((value) {}))),
+            ),
           ),
         ]),
       ),
@@ -45,7 +62,9 @@ class LangBottomSheet extends StatelessWidget {
 }
 
 class FilterBottomSheet extends StatefulWidget {
-  const FilterBottomSheet({super.key});
+  const FilterBottomSheet({
+    super.key,
+  });
 
   @override
   State<FilterBottomSheet> createState() => _FilterBottomSheetState();
@@ -86,19 +105,29 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             child: MediaQuery.removePadding(
               context: context,
               removeTop: true,
-              child: Column(children: []),
+              child: Column(children: const [
+                ExpansionTile(
+                  title: Text('Continent'),
+                  children: [ListTile()],
+                ),
+                ExpansionTile(
+                  title: Text('Time Zone'),
+                  children: [ListTile()],
+                )
+              ]),
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AppButton(
-                  primary: AppColor.whiteColor,
+                  primary: Theme.of(context).primaryColorDark,
                   text: 'Reset',
                   onPressed: () {},
                   minimumSize: Size(
                       ScreenUtil().setWidth(104), ScreenUtil().setHeight(48)),
-                  side: const BorderSide(width: 1, color: AppColor.whiteColor),
+                  side: BorderSide(
+                      width: 1, color: Theme.of(context).primaryColorDark),
                   backgroundColor: Colors.transparent),
               AppButton(
                   primary: AppColor.whiteColor,
