@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_country/constants/app_const.dart';
-import 'package:my_country/constants/textstyles.dart';
-import 'package:my_country/models/app_model.dart';
-import 'package:my_country/utils/app_bottomsheet.dart';
 import 'package:my_country/utils/responsive.dart';
 
 class SearchBar extends StatefulWidget {
@@ -57,72 +54,72 @@ class _SearchBarState extends State<SearchBar> {
 
 //Containers used for changing languages and filtering time zones
 
-class SelectZone extends StatelessWidget {
-  final Explore? continents;
-  const SelectZone({super.key, this.continents});
+// class SelectZone extends StatelessWidget {
+// final Explore? continents;
+// const SelectZone({super.key, this.continents});
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        InkWell(
-          onTap: () => showModalBottomSheet(
-              useRootNavigator: true,
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (_) => const LangBottomSheet()),
-          child: Expanded(
-            child: Container(
-              padding: REdgeInsets.all(8),
-              width: ScreenUtil().setWidth(73),
-              height: ScreenUtil().setHeight(40),
-              decoration: BoxDecoration(
-                  border: Border.all(width: 0.2, color: AppColor.shadowColor),
-                  borderRadius: BorderRadius.circular(4)),
-              child: Row(
-                children: [
-                  Icon(Icons.language_outlined,
-                      size: ScreenUtil().radius(30),
-                      color: Theme.of(context).primaryColorDark),
-                  SizedBox(width: ScreenUtil().setWidth(8)),
-                  Text(
-                    'EN',
-                    style: appLang,
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () => showModalBottomSheet(
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (_) => const FilterBottomSheet()),
-          child: Expanded(
-            child: Container(
-              padding: REdgeInsets.all(8),
-              width: ScreenUtil().setWidth(86),
-              height: ScreenUtil().setHeight(40),
-              decoration: BoxDecoration(
-                  border: Border.all(width: 0.2, color: AppColor.shadowColor),
-                  borderRadius: BorderRadius.circular(4)),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.filter_alt_outlined,
-                    size: ScreenUtil().radius(30),
-                    color: Theme.of(context).primaryColorDark,
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(8)),
-                  Text('Filter', style: appLang)
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
+// @override
+// Widget build(BuildContext context) {
+//   return Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       InkWell(
+//         onTap: () => showModalBottomSheet(
+//             useRootNavigator: true,
+//             backgroundColor: Colors.transparent,
+//             context: context,
+//             builder: (_) => const LangBottomSheet()),
+//         child: Expanded(
+//           child: Container(
+//             padding: REdgeInsets.all(8),
+//             width: ScreenUtil().setWidth(73),
+//             height: ScreenUtil().setHeight(40),
+//             decoration: BoxDecoration(
+//                 border: Border.all(width: 0.2, color: AppColor.shadowColor),
+//                 borderRadius: BorderRadius.circular(4)),
+//             child: Row(
+//               children: [
+//                 Icon(Icons.language_outlined,
+//                     size: ScreenUtil().radius(30),
+//                     color: Theme.of(context).primaryColorDark),
+//                 SizedBox(width: ScreenUtil().setWidth(8)),
+//                 Text(
+//                   'EN',
+//                   style: appLang,
+//                 )
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//       InkWell(
+//         onTap: () => showModalBottomSheet(
+//             backgroundColor: Colors.transparent,
+//             context: context,
+//             builder: (_) => const FilterBottomSheet()),
+//         child: Expanded(
+//           child: Container(
+//             padding: REdgeInsets.all(8),
+//             width: ScreenUtil().setWidth(86),
+//             height: ScreenUtil().setHeight(40),
+//             decoration: BoxDecoration(
+//                 border: Border.all(width: 0.2, color: AppColor.shadowColor),
+//                 borderRadius: BorderRadius.circular(4)),
+//             child: Row(
+//               children: [
+//                 Icon(
+//                   Icons.filter_alt_outlined,
+//                   size: ScreenUtil().radius(30),
+//                   color: Theme.of(context).primaryColorDark,
+//                 ),
+//                 SizedBox(width: ScreenUtil().setWidth(8)),
+//                 Text('Filter', style: appLang)
+//               ],
+//             ),
+//           ),
+//         ),
+//       )
+//     ],
+//   );
+// }
+// }

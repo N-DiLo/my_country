@@ -11,6 +11,7 @@ class WebCall {
       var json = response.body;
       return exploreFromJson(json);
     }
-    return null;
+    return throw Exception(response
+        .statusCode); //Checks if there's an error in getting json data from API
   }
 }
